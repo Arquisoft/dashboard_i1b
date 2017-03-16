@@ -14,3 +14,4 @@ Skeleton of participants module
 - Herminio García González (@herminiogg)
 - Jose Emilio Labra Gayo (@labra)
 - Pablo Roncero Fernández (@ronce96)
+- Alvaro Suarez del Cueto (@varosuarez)
