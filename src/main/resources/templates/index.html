@@ -1,10 +1,14 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Hola</title>
 </head>
 <body>
 <h1>Dashboard0 skeleton</h1>
 <h2>Receiving messages for you:</h2>
-<div id="messages"></div>
+<table>
+      <tr th:each="emp,iterationStatus  : ${messages}">
+        <td th:text="${emp}"></td>
+        </tr>
+    </table>
 </body>
 </html>
