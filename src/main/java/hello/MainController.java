@@ -19,9 +19,7 @@ public class MainController {
     private List<SseEmitter> sseEmitters = Collections.synchronizedList(new ArrayList<>());
 
     @RequestMapping("/")
-    public String landing(Model model) {
-        return "index";
-    }
+    public String landing(Model model) {return "index";}
 
 
 
