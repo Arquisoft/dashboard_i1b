@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
@@ -29,3 +30,19 @@ d3.select(".chart")
     .text(function(d) { return d; });
 
 </script>
+=======
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Hola</title>
+</head>
+<body>
+<h1>Dashboard0 skeleton</h1>
+<h2>Receiving messages for you:</h2>
+<table>
+      <tr th:each="emp,iterationStatus  : ${messages}">
+        <td th:text="${emp}"></td>
+        </tr>
+    </table>
+</body>
+</html>
+>>>>>>> b8fe960263d29d1dab15a5b68a57d63849493ff7
