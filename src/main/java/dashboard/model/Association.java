@@ -6,30 +6,30 @@ public class Association {
 
 	public static class Commenting {
 
-		public static void link(Citizen citizen, Comment comment, Commentable commentable) {
-			comment._setCommentable(commentable);
+		public static void link(Citizen citizen, Comment comment, Proposal proposal) {
+			comment._setProposal(proposal);
 			comment._setCitizen(citizen);
 
-			commentable._getComments().add(comment);
+			proposal._getComments().add(comment);
 			citizen._getComments().add(comment);
 		}
 
-		public static void unlink(Citizen citizen, Comment comment, Commentable commentable) {
-			commentable._getComments().remove(comment);
+		public static void unlink(Citizen citizen, Comment comment, Proposal proposal) {
+			proposal._getComments().remove(comment);
 			citizen._getComments().remove(comment);
 
-			comment._setCommentable(null);
+			comment._setProposal(null);
 			comment._setCitizen(null);
 		}
 	}
 
 	public static class Voting {
 
-		public static void link(Citizen citizen, Vote vote, Proposal proposal) {
-			vote._setProposal(proposal);
+		public static void link(Citizen citizen, Vote vote, Votable votable) {
+			vote._setVotable(votable);
 			vote._setCitizen(citizen);
 
-			proposal._getVotes().add(vote);
+			votable._getVotes().add(vote);
 			citizen._getVotes().add(vote);
 		}
 
@@ -37,7 +37,7 @@ public class Association {
 			proposal._getVotes().remove(vote);
 			citizen._getVotes().remove(vote);
 
-			vote._setProposal(null);
+			vote._setVotable(null);
 			vote._setCitizen(null);
 
 		}

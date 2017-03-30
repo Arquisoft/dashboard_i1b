@@ -1,20 +1,24 @@
 package dashboard.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Proposal extends Commentable{
+public class Proposal extends Votable{
 	
 	private String description;
 	
 	@ManyToOne
+	@JoinColumn(nullable = false)
 	private Citizen citizen;
+	
 	@OneToMany(mappedBy="proposal")
-	private Set<Vote> votes;
+	private Set<Comment> comments = new HashSet<>();
 	
 	Proposal(){}
 	
@@ -31,8 +35,8 @@ public class Proposal extends Commentable{
 		this.description = description;
 	}
 
-	public Set<Vote> _getVotes() {
-		return votes;
+	public Set<Comment> _getComments() {
+		return comments;
 	}
 
 	public void _setCitizen(Citizen citizen) {

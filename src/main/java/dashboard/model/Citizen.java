@@ -15,9 +15,9 @@ public class Citizen {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(unique = true, nullable = false)
+	@Column(nullable = false)
 	private String firstName;
-	@Column(unique = true, nullable = false)
+	@Column(nullable = false)
 	private String lastName;
 	@Column(nullable = false)
 	private Date birthday;

@@ -2,32 +2,38 @@ package dashboard.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Comment extends Commentable {
+public class Comment extends Votable {
 
-	
+	@Column(nullable = false)
 	private String comment;
+	@Column(nullable = false)
 	private Date date;
 
 	@ManyToOne
+	@JoinColumn(nullable = false)
 	private Citizen citizen;
+	
 	@ManyToOne
-	private Commentable commentable;
+	@JoinColumn(nullable = false)
+	private Proposal proposal;
 
 	Comment() {
 	}
 
-	public Comment(Citizen citizen, Commentable commentable,String comment) {
+	public Comment(Citizen citizen, Proposal commentable,String comment) {
 		this.comment = comment;
 		this.date = new Date();
 		Association.Commenting.link(citizen, this, commentable);
 	}
 
-	public void _setCommentable(Commentable commentable) {
-		this.commentable = commentable;
+	public void _setProposal(Proposal proposal) {
+		this.proposal = proposal;
 	}
 	
 	public String getComment() {
@@ -51,7 +57,7 @@ public class Comment extends Commentable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((citizen == null) ? 0 : citizen.hashCode());
-		result = prime * result + ((commentable == null) ? 0 : commentable.hashCode());
+		result = prime * result + ((proposal == null) ? 0 : proposal.hashCode());
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		return result;
 	}
@@ -70,10 +76,10 @@ public class Comment extends Commentable {
 				return false;
 		} else if (!citizen.equals(other.citizen))
 			return false;
-		if (commentable == null) {
-			if (other.commentable != null)
+		if (proposal == null) {
+			if (other.proposal != null)
 				return false;
-		} else if (!commentable.equals(other.commentable))
+		} else if (!proposal.equals(other.proposal))
 			return false;
 		if (date == null) {
 			if (other.date != null)
