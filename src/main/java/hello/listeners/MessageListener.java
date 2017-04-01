@@ -18,10 +18,12 @@ public class MessageListener {
     @KafkaListener(topics = "test")
     public void listen(String data) {
         logger.info("New message received: \"" + data + "\"");
-        MainController.messages.add(data);
+        String[] message = data.split(",");
+        MainController.users.add(message[0]);
+        MainController.votes.add(message[1]);
+        MainController.comments.add(message[2]);
         System.out.println(data);
     }
-
 
 
 }

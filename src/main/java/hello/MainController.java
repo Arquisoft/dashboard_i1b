@@ -1,6 +1,8 @@
 package hello;
 
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,15 +17,21 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 public class MainController {
 
     private static final Logger logger = Logger.getLogger(MainController.class);
-    public static List<String> messages = new ArrayList<>();
+    public static List<String> users = new ArrayList<>();
     private List<SseEmitter> sseEmitters = Collections.synchronizedList(new ArrayList<>());
-    
+    public static List<String> votes = new ArrayList<>();
+    public static List<String> comments = new ArrayList<>();
     @RequestMapping("/")
     public String landing(Model model) {
-    	model.addAttribute("messages",messages);
-
-    	
+    	model.addAttribute("users", users);
+    	model.addAttribute("votes",votes);	
+    	model.addAttribute("comments", comments);
+    	model.addAttribute("numberOfVotes", votes.size());
+    	System.out.println("-----------------------------------------------------------------------------"+votes.size());
         return "index";
     }
+    
+    
+    
 
 }
