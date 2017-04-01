@@ -5,6 +5,7 @@ import javax.annotation.ManagedBean;
 import org.apache.log4j.Logger;
 import org.springframework.kafka.annotation.KafkaListener;
 
+import dashboard.model.Voter;
 import hello.MainController;
 
 /**
@@ -18,10 +19,17 @@ public class MessageListener {
     @KafkaListener(topics = "test")
     public void listen(String data) {
         logger.info("New message received: \"" + data + "\"");
+        
+        // Message style like david,yes,i completely agree
         String[] message = data.split(",");
-        MainController.users.add(message[0]);
-        MainController.votes.add(message[1]);
-        MainController.comments.add(message[2]);
+        
+        Voter voter = new Voter(message[0], message[1], message[2]);
+        MainController.voters.add(voter);
+       
+//        MainController.users.add(message[0]);
+//        MainController.votes.add(message[1]);
+//        MainController.comments.add(message[2]);
+        
         System.out.println(data);
     }
 
