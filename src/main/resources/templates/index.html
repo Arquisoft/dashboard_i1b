@@ -23,8 +23,67 @@
     
     <!-- Table CSS -->
     <link href="css/tabla.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
+     
+    <!-- chart CSS -->
+    <!-- En la función drawChart pasamos parametros -->
+    <!-- @david pasale los parametros a drawchart del numero de sis y nos -->
+    <link href="css/chart.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Votes', 'Number of Votes'],
+          ['yes', 4    ],
+          ['nos',     11],
+        ]);
+
+        var options = {
+          title: 'Chart Votes View'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    
+    <!-- Another chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ 	 <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Values", { role: "style" } ],
+        ["Users", 8.94, "#b87333"],
+        ["Votes", 10.49, "silver"],
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Total number of Users and Votes",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+  </head>
+  <body>
 
 <div id="wrapper">
 
@@ -98,6 +157,12 @@
 
         </div>
     </div>
+    
+    <!-- chart Content -->
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    
+    <!-- Column chart container -->
+    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
 
 </div>
 <!-- jQuery -->
