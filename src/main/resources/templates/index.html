@@ -9,6 +9,7 @@
 
     <title>Dashboard_i1b</title>
     
+    
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
@@ -32,13 +33,15 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-
+      
       function drawChart() {
-
+    	  var yes = document.getElementById("myTable").rows.length-1;
+    	  var no = 20;
+		  //
         var data = google.visualization.arrayToDataTable([
           ['Votes', 'Number of Votes'],
-          ['yes', 4    ],
-          ['nos',     11],
+          ['Likes',yes],
+          ['Dislikes', no],
         ]);
 
         var options = {
@@ -50,41 +53,13 @@
         chart.draw(data, options);
       }
     </script>
-    
-    <!-- Another chart -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
- 	 <script type="text/javascript">
-    google.charts.load("current", {packages:['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Element", "Values", { role: "style" } ],
-        ["Users", 8.94, "#b87333"],
-        ["Votes", 10.49, "silver"],
-      ]);
-
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
-
-      var options = {
-        title: "Total number of Users and Votes",
-        width: 600,
-        height: 400,
-        bar: {groupWidth: "95%"},
-        legend: { position: "none" },
-      };
-      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-      chart.draw(view, options);
-  }
-  </script>
   </head>
   <body>
-
+	
+	
+	<div id='prueba'> peofkn </div>
+	
+	
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -140,9 +115,9 @@
                 </div>
             </div>
 			
-			<table>
+			<table id="myTable">
 					<tr>
-					<th>Number</th>
+					<th >Number</th>
 					<th>User</th>
 					<th>Vote</th>
 					<th>Comment</th>
@@ -157,12 +132,8 @@
 
         </div>
     </div>
-    
     <!-- chart Content -->
     <div id="piechart" style="width: 900px; height: 500px;"></div>
-    
-    <!-- Column chart container -->
-    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
 
 </div>
 <!-- jQuery -->
