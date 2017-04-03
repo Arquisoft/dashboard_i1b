@@ -9,6 +9,13 @@ public class VoteKey implements Serializable{
 	Long citizen;
 	Long votable;
 	
+	VoteKey() {}
+
+	public VoteKey(Long citizen, Long votable) {
+		this.citizen = citizen;
+		this.votable = votable;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

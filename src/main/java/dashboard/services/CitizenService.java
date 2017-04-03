@@ -18,7 +18,19 @@ public class CitizenService {
 		repository.save(citizen);
 	}
 	
+	public void delete(Citizen citizen){
+		repository.delete(citizen);
+	}
+	
 	public List<Citizen> findAll(){
 		return repository.findAll();
+	}
+	
+	public Citizen findById(long id){
+		return repository.findOne(id);
+	}
+	
+	public Citizen findByEmail(String email, String password){
+		return repository.findByEmailAndPassword(email, password);
 	}
 }

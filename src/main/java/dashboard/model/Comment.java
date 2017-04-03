@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -16,11 +15,9 @@ public class Comment extends Votable {
 	private Date date;
 
 	@ManyToOne
-	@JoinColumn(nullable = false)
 	private Citizen citizen;
 	
 	@ManyToOne
-	@JoinColumn(nullable = false)
 	private Proposal proposal;
 
 	Comment() {

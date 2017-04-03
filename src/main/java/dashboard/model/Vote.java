@@ -9,10 +9,12 @@ import javax.persistence.ManyToOne;
 @IdClass(VoteKey.class)
 public class Vote {
 
-	@Id @ManyToOne
+	@Id
+	@ManyToOne
 	private Citizen citizen;
-	
-	@Id @ManyToOne
+
+	@Id
+	@ManyToOne
 	private Votable votable;
 
 	private boolean value;
@@ -39,6 +41,18 @@ public class Vote {
 
 	public void _setCitizen(Citizen citizen) {
 		this.citizen = citizen;
+	}
+
+	public Citizen getCitizen() {
+		return citizen;
+	}
+
+	public Votable getVotable() {
+		return votable;
+	}
+	
+	public VoteKey getID(){
+		return new VoteKey(citizen.getId(),votable.getId());
 	}
 
 	@Override

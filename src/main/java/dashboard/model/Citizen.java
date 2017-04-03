@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,10 +44,11 @@ public class Citizen {
 
 	public Citizen(){}
 	
-	public Citizen(String firstName, String lastName, Date birthday, String email, String nif, String address,
+	public Citizen(String firstName, String lastName, String password,Date birthday, String email, String nif, String address,
 			String nationality, int pollingStationCode) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.password = password;
 		this.birthday = birthday;
 		this.email = email;
 		this.nif = nif;

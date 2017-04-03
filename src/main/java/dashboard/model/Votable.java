@@ -3,6 +3,7 @@ package dashboard.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,8 +19,14 @@ public abstract class Votable {
 	@GeneratedValue
 	private Long id;
 
-	@OneToMany(mappedBy = "votable")
+	@OneToMany(mappedBy = "votable", cascade={CascadeType.MERGE})
 	private Set<Vote> votes = new HashSet<>();
+
+	
+	
+	public Set<Vote> getVotes() {
+		return new HashSet<>(votes);
+	}
 
 	Set<Vote> _getVotes() {
 		return votes;
