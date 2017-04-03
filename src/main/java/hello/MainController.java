@@ -21,14 +21,18 @@ public class MainController {
 	// public static List<String> votes = new ArrayList<>();
 	// public static List<String> comments = new ArrayList<>();
 
-	public static List<Voter> voters = new ArrayList<>();
+	public static List<Voter> votersLike = new ArrayList<>();
+	public static List<Voter> votersDislike = new ArrayList<>();
 
 	@RequestMapping("/")
 	public String landing(Model model) {
 
-		System.out.println("--------------------------------------------------------------VOTE NUM: " + voters.size());
-		model.addAttribute("voters", voters);
-		model.addAttribute("numberOfVotes", voters.size());
+		System.out.println("--------------------------------------------------------------VOTE (like) NUM: " + votersLike.size());
+		System.out.println("--------------------------------------------------------------VOTE (dislike) NUM: " + votersDislike.size());
+		model.addAttribute("votersLike", votersLike);
+		model.addAttribute("votersDislike", votersDislike);
+		model.addAttribute("numberOfVotesLike", votersLike.size());
+		model.addAttribute("numberOfVotesDislike", votersDislike.size());
 
 		// model.addAttribute("voters", users);
 		// model.addAttribute("votes",votes);

@@ -2,14 +2,23 @@ package dashboard.model;
 
 public class Voter {
 
-	private String name, vote, comment;
+	private String name, vote, proposal, comment;
 	
 	public Voter(){}
 	
-	public Voter(String name, String vote, String comment){
+	public Voter(String name, String vote, String proposal, String comment){
 		this.name = name;
 		this.vote = vote;
 		this.comment = comment;
+		this.proposal = proposal;
+	}
+	
+	public String getProposal() {
+		return proposal;
+	}
+	
+	public void setProposal(String proposal) {
+		this.proposal = proposal;
 	}
 
 	public String getName() {
@@ -38,6 +47,6 @@ public class Voter {
 
 	@Override
 	public String toString() {
-		return "Voter [name=" + name + ", vote=" + vote + ", comment=" + comment + "]";
+		return "Voter [name=" + name + ", vote=" + vote + ", propsal=" + proposal + ", comment=" + comment + "]";
 	}
 }

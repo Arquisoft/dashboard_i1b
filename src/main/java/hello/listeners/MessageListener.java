@@ -23,8 +23,11 @@ public class MessageListener {
         // Message style like david,yes,i completely agree
         String[] message = data.split(",");
         
-        Voter voter = new Voter(message[0], message[1], message[2]);
-        MainController.voters.add(voter);
+        Voter voter = new Voter(message[0], message[1], message[2], message[3]);
+        if(message[1].equals("like"))
+        	MainController.votersLike.add(voter);
+        else
+        	MainController.votersDislike.add(voter);
        
 //        MainController.users.add(message[0]);
 //        MainController.votes.add(message[1]);

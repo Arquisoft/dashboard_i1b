@@ -35,8 +35,8 @@
       google.charts.setOnLoadCallback(drawChart);
       
       function drawChart() {
-    	  var yes = document.getElementById("myTable").rows.length-1;
-    	  var no = 20;
+    	  var yes = document.getElementById("myTableLike").rows.length-1;
+    	  var no = document.getElementById("myTableDislike").rows.length-1;
 		  //
         var data = google.visualization.arrayToDataTable([
           ['Votes', 'Number of Votes'],
@@ -114,18 +114,37 @@
                     <h1 class="page-header">Dashboard</h1>
                 </div>
             </div>
+            
+            <h1>Table of Likes</h1>
 			
-			<table id="myTable">
+			<table id="myTableLike">
 					<tr>
 					<th >Number</th>
 					<th>User</th>
-					<th>Vote</th>
+					<th>Proposal</th>
 					<th>Comment</th>
 			   </tr>
-			   <tr th:each="voter,iterationStatus  : ${voters}">
+			   <tr th:each="voter,iterationStatus  : ${votersLike}">
 					<td th:text="${iterationStatus.count}">1</td>
 					<td th:text="${voter.name}"></td>
-					<td th:text="${voter.vote}"></td>
+					<td th:text="${voter.proposal}"></td>
+					<td th:text="${voter.comment}"></td>
+			   </tr>
+			</table>
+			
+			<h1>Table of Dislikes</h1>
+			
+			<table id="myTableDislike">
+					<tr>
+					<th>Number</th>
+					<th>User</th>
+					<th>Proposal</th>
+					<th>Comment</th>
+			   </tr>
+			   <tr th:each="voter,iterationStatus  : ${votersDislike}">
+					<td th:text="${iterationStatus.count}">1</td>
+					<td th:text="${voter.name}"></td>
+					<td th:text="${voter.proposal}"></td>
 					<td th:text="${voter.comment}"></td>
 			   </tr>
 			</table>
