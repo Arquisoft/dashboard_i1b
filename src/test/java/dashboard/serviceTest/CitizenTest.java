@@ -37,9 +37,9 @@ public class CitizenTest {
 
 	@Before
 	public void init() {
-		c1 = new Citizen("Pablo", "Roncero", "password", new Date(), "roncero@email.com", "minif", "miaddress", "spain", 1);
-		c2 = new Citizen("David", "Villamil", "password", new Date(), "villamil@email.com", "minif", "miaddress", "spain", 1);
-		c3 = new Citizen("Alvalo", "Suarez", "password", new Date(), "suarez@email.com", "minif", "miaddress", "spain", 1);
+		c1 = new Citizen("Pablo", "Roncero", "password", new Date(), "roncero@email.com", "minif1", "miaddress", "spain", 1);
+		c2 = new Citizen("David", "Villamil", "password", new Date(), "villamil@email.com", "minif2", "miaddress", "spain", 1);
+		c3 = new Citizen("Alvalo", "Suarez", "password", new Date(), "suarez@email.com", "minif3", "miaddress", "spain", 1);
 	}
 
 	@Test
@@ -49,10 +49,10 @@ public class CitizenTest {
 		assertTrue(c1.equals(citizen.findByEmailAndPassword("roncero@email.com", "password")));
 		c2 = citizen.save(c2);
 		assertTrue(citizen.findAll().size() == 2);
-		assertTrue(c1.equals(citizen.findByEmailAndPassword("villamil@email.com", "password")));
+		assertTrue(c2.equals(citizen.findByEmailAndPassword("villamil@email.com", "password")));
 		c3 = citizen.save(c3);
 		assertTrue(citizen.findAll().size() == 3);
-		assertTrue(c1.equals(citizen.findByEmailAndPassword("suarez@email.com", "password")));
+		assertTrue(c3.equals(citizen.findByEmailAndPassword("suarez@email.com", "password")));
 
 		citizen.delete(c1.getId());
 		assertTrue(citizen.findAll().size() == 2);
