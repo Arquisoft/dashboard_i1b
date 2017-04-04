@@ -1,18 +1,18 @@
 package steps;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import dashboard.model.Voter;
-import hello.Application;
-import hello.listeners.KafkaVoterSender;
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import dashboard.Application;
+import dashboard.model.Voter;
+import hello.listeners.KafkaVoterSender;
 
 /**
  * Created by Alvaro Suarez.

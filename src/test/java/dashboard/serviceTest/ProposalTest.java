@@ -15,13 +15,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import dashboard.Application;
 import dashboard.model.Citizen;
 import dashboard.model.Proposal;
 import dashboard.model.Vote;
 import dashboard.persistence.CitizenRepositoy;
 import dashboard.persistence.ProposalRepository;
 import dashboard.persistence.VoteRepository;
-import hello.Application;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
