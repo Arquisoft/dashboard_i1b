@@ -24,7 +24,7 @@ public class Comment extends Votable {
 	}
 
 	public Comment(Citizen citizen, Proposal commentable,String comment) {
-		this.comment = comment;
+		setComment(comment);
 		this.date = new Date();
 		Association.Commenting.link(citizen, this, commentable);
 	}

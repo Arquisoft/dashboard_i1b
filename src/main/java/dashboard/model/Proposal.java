@@ -23,7 +23,7 @@ public class Proposal extends Votable{
 	Proposal(){}
 	
 	public Proposal(String desription, Citizen citizen){
-		this.description = desription;
+		setDescription(desription);
 		Association.Propose.link(citizen, this);
 		}
 
