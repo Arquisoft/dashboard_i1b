@@ -43,9 +43,9 @@ public class VoteTest {
 
 	@Before
 	public void init() {
-		c1 = new Citizen("Pablo","Roncero","password",new Date(),"mi@email.com","minif","miaddress","spain",1);
-		c2 = new Citizen("David","Villamil","password",new Date(),"mi@email.com","minif","miaddress","spain",1);
-		c3 = new Citizen("Alvalo","Suarez","password",new Date(),"mi@email.com","minif","miaddress","spain",1);
+		c1 = new Citizen("Pablo","Roncero","password",new Date(),"Roncero@email.com","minif1","miaddress","spain",1);
+		c2 = new Citizen("David","Villamil","password",new Date(),"Villamil@email.com","minif2","miaddress","spain",1);
+		c3 = new Citizen("Alvalo","Suarez","password",new Date(),"Suarez@email.com","minif3","miaddress","spain",1);
 		p1 = new Proposal("p1", c1);
 		p2 = new Proposal("p2", c2);
 		p3 = new Proposal("p3", c3);

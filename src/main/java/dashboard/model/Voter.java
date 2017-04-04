@@ -3,20 +3,21 @@ package dashboard.model;
 public class Voter {
 
 	private String name, vote, proposal, comment;
-	
-	public Voter(){}
-	
-	public Voter(String name, String vote, String proposal, String comment){
-		this.name = name;
-		this.vote = vote;
-		this.comment = comment;
-		this.proposal = proposal;
+
+	public Voter() {
 	}
-	
+
+	public Voter(String name, String vote, String proposal, String comment) {
+		setName(name);
+		setVote(vote);
+		setComment(comment);
+		setProposal(proposal);
+	}
+
 	public String getProposal() {
 		return proposal;
 	}
-	
+
 	public void setProposal(String proposal) {
 		this.proposal = proposal;
 	}

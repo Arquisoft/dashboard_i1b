@@ -23,7 +23,7 @@ public class Vote {
 	}
 
 	public Vote(Citizen citizen, Votable votable, boolean value) {
-		this.value = value;
+		setValue(value);
 		Association.Voting.link(citizen, this, votable);
 	}
 
