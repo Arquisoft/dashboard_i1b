@@ -91,6 +91,13 @@
 			<artifactId>selenium-firefox-driver</artifactId>
 			<version>3.3.1</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-spring</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
