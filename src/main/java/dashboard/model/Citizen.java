@@ -172,14 +172,6 @@ public class Citizen {
 	public Set<Vote> _getVotes() {
 		return votes;
 	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((nif == null) ? 0 : nif.hashCode());
-		return result;
-	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -197,13 +189,4 @@ public class Citizen {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Citizen [firstName=" + firstName + ", lastName=" + lastName + ", birthday=" + birthday + ", email="
-				+ email + ", nif=" + nif + ", address=" + address + ", nationality=" + nationality
-				+ ", pollingStationCode=" + pollingStationCode + ", password=" + password + "]";
-	}
-	
-
 }

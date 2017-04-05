@@ -45,9 +45,4 @@ public class Voter {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-
-	@Override
-	public String toString() {
-		return "Voter [name=" + name + ", vote=" + vote + ", propsal=" + proposal + ", comment=" + comment + "]";
-	}
 }
