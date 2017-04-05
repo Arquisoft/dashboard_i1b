@@ -11,12 +11,16 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import dashboard.Application;
 import dashboard.model.Voter;
-
+@ContextConfiguration
+@SpringBootTest(classes = Application.class)
 public class LandingSteps {
 
 
