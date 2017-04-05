@@ -9,8 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan("dashboard.model")
+@EntityScan("dashboard")
 @EnableJpaRepositories("dashboard.persistence")
+@ComponentScan("dashboard")
 public class Application {
 
 	private static final Logger log = LoggerFactory.getLogger(Application.class);

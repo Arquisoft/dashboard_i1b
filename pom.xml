@@ -13,15 +13,15 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.4.RELEASE</version>
 	</parent>
-	
+
 	<dependencies>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bus-kafka</artifactId>
-        </dependency>
-		
-				
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bus-kafka</artifactId>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -47,21 +47,21 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
 		<dependency>
-    		 <groupId>info.cukes</groupId>
-   			 <artifactId>cucumber-junit</artifactId>
-   			 <version>1.2.5</version>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>1.2.5</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
 		<dependency>
-		    <groupId>info.cukes</groupId>
-		    <artifactId>cucumber-java</artifactId>
-		    <version>1.2.5</version>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
 		</dependency>
-		
+
 
 		<!-- Persistence -->
 		<dependency>
@@ -69,7 +69,7 @@
 			<artifactId>javax.persistence</artifactId>
 			<version>2.1.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -78,6 +78,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-htmlunit-driver</artifactId>
+			<version>2.52.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-firefox-driver</artifactId>
+			<version>3.3.1</version>
 		</dependency>
 
 	</dependencies>
@@ -127,7 +139,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		
+
 	</build>
 
 	<reporting>

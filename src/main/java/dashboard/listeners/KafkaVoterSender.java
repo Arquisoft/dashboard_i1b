@@ -1,4 +1,4 @@
-package hello.listeners;
+package dashboard.listeners;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +8,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import dashboard.model.Voter;
+
 
 public class KafkaVoterSender {
 	

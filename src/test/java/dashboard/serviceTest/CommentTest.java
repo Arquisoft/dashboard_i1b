@@ -43,6 +43,10 @@ public class CommentTest {
 
 	@Before
 	public void init() {
+		comments.deleteAll();
+		proposal.deleteAll();
+		citizen.deleteAll();
+		
 		c1 = new Citizen("Pablo","Roncero","password",new Date(),"Roncero@email.com","minif1","miaddress","spain",1);
 		c2 = new Citizen("David","Villamil","password",new Date(),"Villamil@email.com","minif2","miaddress","spain",1);
 		c3 = new Citizen("Alvalo","Suarez","password",new Date(),"Suarez@email.com","minif3","miaddress","spain",1);
