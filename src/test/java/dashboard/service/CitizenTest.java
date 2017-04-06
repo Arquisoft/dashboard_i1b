@@ -1,4 +1,4 @@
-package dashboard.serviceTest;
+package dashboard.service;
 
 import static org.junit.Assert.assertTrue;
 
@@ -44,6 +44,8 @@ public class CitizenTest {
 
 	@Test
 	public void test() {
+		citizen.deleteAll();
+
 		c1 = citizen.save(c1);
 		assertTrue(citizen.findAll().size() == 1);
 		assertTrue(c1.equals(citizen.findByEmailAndPassword("roncero@email.com", "password")));

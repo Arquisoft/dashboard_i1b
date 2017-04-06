@@ -50,14 +50,6 @@ public class MainController {
 		}
 	}
 
-	@KafkaListener(topics = "test")
-	public String listen(String data) {
-		logger.info("New message received: \"" + data + "\"");
-
-		System.out.println(data);
-		return data;
-	}
-
 	@RequestMapping("/")
 	public String landing(Model model) {
 		if (isFirstAccess = true) {

@@ -1,48 +1,47 @@
-package dashboard.serviceTest;
+package dashboard.service;
 
 import static org.junit.Assert.assertTrue;
 
-import java.io.File;
 import java.util.Date;
-import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.IntegrationTest;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.stereotype.Component;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import dashboard.Application;
 import dashboard.model.Citizen;
 import dashboard.model.Proposal;
 import dashboard.model.Vote;
-import dashboard.model.Voter;
 import dashboard.persistence.CitizenRepositoy;
 import dashboard.persistence.ProposalRepository;
 import dashboard.persistence.VoteRepository;
-@ContextConfiguration
-@SpringBootTest(classes = Application.class)
-public class LandingSteps {
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = Application.class)
+@WebAppConfiguration
+@IntegrationTest({ "server.port=0" })
+@Component
+public class VoteTest {
+
 	@Autowired
 	private VoteRepository votes;
 	@Autowired
 	private CitizenRepositoy citizen;
 	@Autowired
 	private ProposalRepository proposal;
+	
 	private Citizen c1, c2, c3;
 	private Proposal p1, p2, p3;
 	private Vote v1, v2, v3;
 
-	@Given("^a list of proposals:$")
-	public void aListOfProposals(List<Voter> voters) throws Throwable {
+	@Before
+	public void init() {
 		votes.deleteAll();
 		proposal.deleteAll();
 		citizen.deleteAll();
@@ -56,14 +55,28 @@ public class LandingSteps {
 		v1 = new Vote(c1, p1, true);
 		v2 = new Vote(c2, p2, true);
 		v3 = new Vote(c3, p3, false);
-		
+	}
+
+	@Test
+	public void test() {
 		v1 = votes.save(v1);
 		assertTrue(votes.findAll().size()==1);
+		v2 = votes.save(v2);
+		assertTrue(votes.findAll().size()==2);
+		v3 = votes.save(v3);
+		assertTrue(votes.findAll().size()==3);
+		
+		votes.delete(v1.getID());
+		assertTrue(votes.findAll().size()==2);
+		votes.delete(v2.getID());
+		assertTrue(votes.findAll().size()==1);
+		votes.delete(v3.getID());
+		assertTrue(votes.findAll().size()==0);
+		
+		votes.deleteAll();
+		proposal.deleteAll();
+		citizen.deleteAll();
 	}
-
-	@Then("^the webpage contains that proposal$")
-	public void databaseContainsAtLeastOneProposal() throws Throwable {
-
-	}
-
+	
+	
 }

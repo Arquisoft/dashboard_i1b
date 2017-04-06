@@ -1,5 +1,7 @@
 package dashboard.listeners;
 
+import javax.annotation.ManagedBean;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -9,19 +11,19 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import dashboard.model.Voter;
 
-
+@ManagedBean
 public class KafkaVoterSender {
 	
 	private static final Logger logger = Logger.getLogger(KafkaVoterSender.class);
 
     @Autowired
-    private KafkaTemplate<String, Voter> kafkaTemplate;
+    private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void send(String topic, Voter data) {
-        ListenableFuture<SendResult<String, Voter>> future = kafkaTemplate.send(topic, data);
-        future.addCallback(new ListenableFutureCallback<SendResult<String, Voter>>() {
+    public void send(String topic, String data) {
+        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, data);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
             @Override
-            public void onSuccess(SendResult<String, Voter> result) {
+            public void onSuccess(SendResult<String, String> result) {
                 logger.info("Message Send \"" + data + "\" to topic " + topic);
             }
 
@@ -33,6 +35,6 @@ public class KafkaVoterSender {
     }
     
     public void sendTestVoter(Voter voter) {
-        send("Voter", voter);
+        send("Voter", voter.toString());
     }
 }

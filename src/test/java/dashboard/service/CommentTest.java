@@ -1,4 +1,4 @@
-package dashboard.serviceTest;
+package dashboard.service;
 
 import static org.junit.Assert.assertTrue;
 

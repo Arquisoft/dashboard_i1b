@@ -1,9 +1,12 @@
 #language: en
-Feature: Kafka event received
-  Event has to be received properly
-
-  Scenario: proposal event is received
+Feature: Open the dashboard view
+ 
+  Scenario: Open view and receive message
     Given a list of proposals:
     | name | vote | proposal | comment |
     | "Alvaro" | "like" | "cucumber" | "jirafa" | 
-    Then the webpage contains that proposal
+    | "Pablo" | "dislike" | "cucumber" | "gorila" | 
+    Then the webpage contains that list:
+     | name | vote | proposal | comment |
+    | "Alvaro" | "like" | "cucumber" | "jirafa" | 
+    | "Pablo" | "dislike" | "cucumber" | "gorila" | 
