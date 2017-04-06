@@ -1,14 +1,11 @@
 package dashboard;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +24,7 @@ public class MainController {
 	public static List<Voter> votersDislike = new ArrayList<>();
 	public static List<String> messages = new ArrayList<>();
 	private static List<SseEmitter> sseEmitters = Collections.synchronizedList(new ArrayList<>());
-	private static boolean isFirstAccess = false;
+	private static boolean isFirstAccess = true;
 
 	@Autowired
 	private VoteRepository voteRepository;
