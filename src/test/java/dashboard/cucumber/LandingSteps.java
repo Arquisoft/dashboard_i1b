@@ -19,11 +19,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import dashboard.Application;
 import dashboard.listeners.KafkaVoterSender;
-import dashboard.model.Citizen;
-import dashboard.model.Proposal;
-import dashboard.model.Vote;
 import dashboard.model.Voter;
-import dashboard.persistence.VoteRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Application.class)
@@ -32,32 +28,17 @@ public class LandingSteps {
 	
 	
 	protected WebDriver driver = new HtmlUnitDriver();
-	protected String baseUrl = "http://localhost:8080/";
+	protected String baseUrl = "http://localhost:8090/";
 	
 	@Autowired
-	private KafkaVoterSender sender;
+	private KafkaVoterSender sender;	
 	
-	@Autowired
-	private VoteRepository repository;
-
-	
-	@Given("^a list of proposals:$")
+	@Given("^a list of voters:$")
 	public void aListOfProposals(List<Voter> voters) throws Throwable {
 		driver.get(baseUrl);
 		Thread.sleep(2000);
 		assertNotNull(driver.findElement(By.id("myTableLike")));
-		
-		Citizen c1 = new Citizen("Pablo","Roncero","password",new Date(),"Roncero@email.com","minif1","miaddress","spain",1);
-		Citizen c3 = new Citizen("Alvalo","Suarez","password",new Date(),"Suarez@email.com","minif3","miaddress","spain",1);
-		Proposal p1 = new Proposal("p1", c1);
-		Proposal p3 = new Proposal("p3", c3);
-		Vote v1 = new Vote(c1, p1, true);
-		Vote v3 = new Vote(c3, p3, false);
-		
-		repository.save(v1);
-		repository.save(v3);
-
-		
+			
 		for(Voter v : voters){
 			sender.sendTestVoter(v);
 		}
